@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Discover Earth</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #805ad5, #6b46c1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      animation: slideIn 0.8s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .bot-avatar {
+      width: 90px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+    .chat-box {
+      margin: 15px auto;
+      background: #f5f3ff;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #553c9a;
+      display: inline-block;
+      max-width: 85%;
+    }
+    h2 { color: #553c9a; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+    }
+    input:focus {
+      border-color: #805ad5;
+      box-shadow: 0 0 6px rgba(128,90,213,0.4);
+    }
+    .btn {
+      padding: 14px;
+      background: #805ad5;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #6b46c1; }
+    .links { margin-top: 15px; }
+    .links a { color: #553c9a; font-weight: 600; text-decoration: none; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://undraw.co/api/illustrations/57ad5f06-63a3-4a17-bbcc-49f88697da82" 
+         alt="Chatbot" class="bot-avatar">
+
+    <div class="chat-box">🤖 Let’s create your account!</div>
+
+    <h2>Create Account</h2>
+    <form id="signupForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn">Sign Up</button><a href="dashboard.html"></a>
+    </form>
+    <div class="links">
+      <a href="login.html">Already have an account? Login</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("🎉 Account created successfully!");
+      window.location.href = "login.html"; 
+    });
+  </script>
+</body>
+</html>

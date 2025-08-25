@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Earth • Quiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg1:#0b1220; --bg2:#0e172a; --brand:#22d3ee; --accent:#a78bfa;
+    }
+    body{
+      background:
+        radial-gradient(900px 420px at 0% -10%, rgba(34,211,238,.14), transparent 60%),
+        radial-gradient(900px 420px at 110% 0%, rgba(167,139,250,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      color:#e2e8f0;
+    }
+    .glass{ background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); box-shadow:0 8px 30px rgba(0,0,0,.28); }
+    .soft{ transition: transform .18s ease, box-shadow .2s ease, background .2s ease; }
+    .soft:hover{ transform: translateY(-2px); }
+    .ringed:focus-visible{ outline:none; box-shadow:0 0 0 6px rgba(34,211,238,.2); }
+  </style>
+</head>
+<body class="min-h-full antialiased">
+
+  <header class="glass sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="font-extrabold tracking-tight">🔍 Quick Quiz</h1>
+      <a href="dashboard.html" class="px-4 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white soft">Back to Dashboard</a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <article class="glass rounded-2xl p-6 soft">
+      <h2 class="text-xl font-semibold">Today’s Quiz</h2>
+      <p class="text-sm text-slate-300/80">5 questions • 1 point each • Score 80% for a badge.</p>
+
+      <form id="quizForm" class="mt-6 space-y-6">
+        <!-- Q1 -->
+        <fieldset class="chip p-4 rounded-xl">
+          <legend class="font-semibold mb-2">1) Which factor primarily drives sea-level rise affecting coastal communities?</legend>
+          <label class="block mt-2"><input type="radio" name="q1" value="a" class="mr-2"> Increased volcanic ash</label>
+          <label class="block mt-1"><input type="radio" name="q1" value="b" class="mr-2"> Thermal expansion of warming oceans</label>
+          <label class="block mt-1"><input type="radio" name="q1" value="c" class="mr-2"> Increased river sediment</label>
+        </fieldset>
+
+        <!-- Q2 -->
+        <fieldset class="chip p-4 rounded-xl">
+          <legend class="font-semibold mb-2">2) GIS is BEST described as a system that…</legend>
+          <label class="block mt-2"><input type="radio" name="q2" value="a" class="mr-2"> Predicts earthquakes with certainty</label>
+          <label class="block mt-1"><input type="radio" name="q2" value="b" class="mr-2"> Captures, stores, analyzes, and displays spatial data</label>
+          <label class="block mt-1"><input type="radio" name="q2" value="c" class="mr-2"> Replaces traditional fieldwork</label>
+        </fieldset>
+
+        <!-- Q3 -->
+        <fieldset class="chip p-4 rounded-xl">
+          <legend class="font-semibold mb-2">3) Desertification is MOST associated with…</legend>
+          <label class="block mt-2"><input type="radio" name="q3" value="a" class="mr-2"> Overgrazing and deforestation</label>
+          <label class="block mt-1"><input type="radio" name="q3" value="b" class="mr-2"> Rising sea ice</label>
+          <label class="block mt-1"><input type="radio" name="q3" value="c" class="mr-2"> Urban green roofs</label>
+        </fieldset>
+
+        <!-- Q4 -->
+        <fieldset class="chip p-4 rounded-xl">
+          <legend class="font-semibold mb-2">4) Which is a key feature of megacities?</legend>
+          <label class="block mt-2"><input type="radio" name="q4" value="a" class="mr-2"> Population exceeding 10 million</label>
+          <label class="block mt-1"><input type="radio" name="q4" value="b" class="mr-2"> Located only in developed countries</label>
+          <label class="block mt-1"><input type="radio" name="q4" value="c" class="mr-2"> Rural dominance</label>
+        </fieldset>
+
+        <!-- Q5 -->
+        <fieldset class="chip p-4 rounded-xl">
+          <legend class="font-semibold mb-2">5) Rapid glacier melt threatens freshwater supplies by…</legend>
+          <label class="block mt-2"><input type="radio" name="q5" value="a" class="mr-2"> Increasing ocean salinity</label>
+          <label class="block mt-1"><input type="radio" name="q5" value="b" class="mr-2"> Reducing long-term river flow stability</label>
+          <label class="block mt-1"><input type="radio" name="q5" value="c" class="mr-2"> Creating permanent droughts everywhere</label>
+        </fieldset>
+
+        <div class="flex items-center justify-between pt-2">
+          <button type="button" id="clear" class="px-4 py-2 rounded-lg glass soft">Clear</button>
+          <button type="submit" class="px-5 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white soft">Submit Quiz</button>
+        </div>
+      </form>
+    </article>
+
+    <!-- Result modal -->
+    <dialog id="resultModal" class="glass rounded-2xl p-0 w-full max-w-md">
+      <div class="p-6">
+        <h3 id="resultTitle" class="text-xl font-bold">🎉 Well done!</h3>
+        <p id="resultMsg" class="text-sm text-slate-300/80 mt-1"></p>
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="text-xs text-slate-300/80">Score</div>
+            <div id="scoreVal" class="text-2xl font-bold">0%</div>
+          </div>
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="text-xs text-slate-300/80">XP Earned</div>
+            <div id="xpEarned" class="text-2xl font-bold">+0</div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300/70 mt-4" id="redirectNote">Redirecting to dashboard…</p>
+        <div class="mt-5 flex justify-end gap-2">
+          <a href="dashboard.html" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white soft">Go now</a>
+          <button id="closeModal" class="px-4 py-2 rounded-lg glass soft">Stay</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <script>
+    const answers = { q1:'b', q2:'b', q3:'a', q4:'a', q5:'b' };
+    const form = document.getElementById('quizForm');
+    const modal = document.getElementById('resultModal');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultMsg = document.getElementById('resultMsg');
+    const scoreVal = document.getElementById('scoreVal');
+    const xpEarned = document.getElementById('xpEarned');
+    const closeModal = document.getElementById('closeModal');
+    const clearBtn = document.getElementById('clear');
+    const redirectNote = document.getElementById('redirectNote');
+
+    function get(k,d){ try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } }
+    function set(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+
+    clearBtn.addEventListener('click', ()=>{
+      form.reset();
+    });
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      // score
+      let correct = 0;
+      Object.keys(answers).forEach(q=>{
+        const v = (new FormData(form)).get(q);
+        if(v === answers[q]) correct++;
+      });
+      const score = Math.round((correct / 5) * 100);
+
+      // XP logic
+      let bonus = 0;
+      if(score === 100) bonus = 30;
+      else if(score >= 80) bonus = 20;
+      else if(score >= 60) bonus = 12;
+      else if(score >= 40) bonus = 8;
+      else bonus = 5;
+
+      const xp = get('gh_xp',0) + bonus;
+      set('gh_xp', xp);
+
+      // badges
+      const badges = get('gh_badges', []);
+      if(score >= 80 && !badges.includes('Quick Thinker')) {
+        badges.push('Quick Thinker');
+      }
+      if(xp >= 300 && !badges.includes('World Explorer')) {
+        badges.push('World Explorer');
+      }
+      set('gh_badges', badges);
+
+      // history + streak
+      const hist = get('gh_quizHistory', []);
+      hist.push(score);
+      set('gh_quizHistory', hist.slice(-20));
+      const streak = get('gh_streak', 0);
+      set('gh_streak', streak + 1);
+
+      // display
+      scoreVal.textContent = score + '%';
+      xpEarned.textContent = `+${bonus}`;
+      resultTitle.textContent = score >= 80 ? '🎉 Excellent!' : score >= 50 ? '👍 Good try!' : '💪 Keep going!';
+      resultMsg.textContent = score >= 80 ? 'You smashed it. Badge check on dashboard 🔥' : 'Review a topic and try again.';
+
+      modal.showModal();
+
+      // auto-redirect
+      let t = 3;
+      redirectNote.textContent = `Redirecting to dashboard in ${t}s…`;
+      const timer = setInterval(()=>{
+        t--; redirectNote.textContent = `Redirecting to dashboard in ${t}s…`;
+        if(t<=0){ clearInterval(timer); location.href='dashboard.html'; }
+      }, 1000);
+
+      closeModal.addEventListener('click', ()=>{
+        modal.close();
+        clearInterval(timer);
+      }, { once:true });
+    });
+  </script>
+</body>
+</html>

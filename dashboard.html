@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Earth • Explorer Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { 
+      background: linear-gradient(135deg, #dbeafe, #f0fdf4, #fffbeb);
+      transition: background-color 0.3s;
+    }
+    html.dark body {
+      background: linear-gradient(135deg, #0f172a, #1e293b, #111827);
+    }
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md flex justify-between items-center px-6 py-4 shadow">
+    <h1 class="text-2xl font-bold text-sky-700 dark:text-cyan-400">🌍 Geography Hub</h1>
+    <div class="flex items-center gap-4">
+      <button id="themeToggle" class="px-3 py-2 rounded-full bg-sky-200 dark:bg-gray-700 hover:bg-sky-300 dark:hover:bg-gray-600 transition">Dark Mode</button>
+      <a href="login.html" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg shadow transition">Logout</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto py-8 px-4 space-y-12">
+
+    <!-- Welcome / Fun Fact -->
+    <section class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-700 dark:text-emerald-400">Welcome Back, Explorer!</h2>
+      <p class="mt-2 text-gray-700 dark:text-gray-300">Discover the world through knowledge, maps, and challenges.</p>
+      <div class="mt-6 max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-6 border border-sky-100 dark:border-gray-700">
+        <h3 class="text-xl font-semibold text-sky-600 dark:text-cyan-400">🌟 Fun Fact</h3>
+        <p class="mt-2">Mount Everest grows about 4 mm every year due to geological uplift. 🌄</p>
+      </div>
+    </section>
+
+    <!-- Quick Access / Resources -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-bold text-sky-700 dark:text-cyan-400 mb-4 text-center">📌 Quick Access</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col items-center gap-2 border border-sky-100 dark:border-gray-700 cursor-pointer hover:scale-105 transition">
+          <i class="fa-solid fa-file-pdf text-red-500 text-3xl"></i>
+          <p class="font-semibold">PDF Notes</p>
+        </div>
+        <div class="card bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col items-center gap-2 border border-sky-100 dark:border-gray-700 cursor-pointer hover:scale-105 transition">
+          <i class="fa-solid fa-video text-purple-500 text-3xl"></i>
+          <p class="font-semibold">Video Lessons</p>
+        </div>
+        <div class="card bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col items-center gap-2 border border-sky-100 dark:border-gray-700 cursor-pointer hover:scale-105 transition">
+          <i class="fa-solid fa-newspaper text-green-500 text-3xl"></i>
+          <p class="font-semibold">Recent Blogs</p>
+        </div>
+        <div class="card bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col items-center gap-2 border border-sky-100 dark:border-gray-700 cursor-pointer hover:scale-105 transition">
+          <i class="fa-solid fa-map-location-dot text-amber-500 text-3xl"></i>
+          <p class="font-semibold">Regional Studies</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Geography Topics -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-bold text-sky-700 dark:text-cyan-400 mb-6 text-center">📚 Geography Topics</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 10 Topic Cards -->
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Coastal Climate" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🌊 Climate Change & Coastal Communities</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Rising seas, sinking lands – frontline of climate change.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb" alt="GIS Mapping" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🗺️ GIS & Urban Planning</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Mapping smarter, sustainable cities.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35" alt="Desertification" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🏜️ Desertification in Africa</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">From green to barren lands.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1505764706515-aa95265c5abc" alt="Urbanization" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🏙️ Urbanization & Megacities</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Rapid growth, opportunities & challenges.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Natural Disasters" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🌋 Natural Disasters & Hazards</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Earthquakes, volcanoes, floods.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1500937386664-56b56e3c71d5" alt="Sustainable Agriculture" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🌾 Sustainable Agriculture</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Feeding the future sustainably.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a" alt="Water Scarcity" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">💧 Water Scarcity & Management</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Every drop counts.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c" alt="Eco-tourism" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🍃 Eco-tourism & Conservation</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Travel responsibly, protect nature.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1473654729523-203e25dfda10" alt="Globalization" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">🌐 Globalization & Culture</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Cultural blending across borders.</p>
+          </div>
+        </article>
+        <article class="card bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1502301103665-0f48bfe3eac7" alt="Glacial Retreat" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">❄️ Glacial Retreat & Freshwater</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Melting glaciers, water crisis.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="mt-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-sky-700 dark:text-cyan-400 mb-6 text-center">📬 Contact Us</h2>
+      <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-6 border border-sky-100 dark:border-gray-700">
+        <form action="https://formspree.io/f/xovnazbo" method="POST" class="flex flex-col gap-4">
+          <input type="text" name="name" placeholder="Your Name" required
+                 class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:border-gray-600">
+          <input type="email" name="email" placeholder="Your Email" required
+                 class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:border-gray-600">
+          <textarea name="message" placeholder="Your Message" rows="4" required
+                 class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-700 dark:border-gray-600"></textarea>
+          <button type="submit" class="btn bg-sky-500 hover:bg-sky-600 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white font-semibold p-3 rounded-lg transition">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500 text-sm bg-white/80 dark:bg-gray-900/80 border-t">
+    © 2025 Geography Hub • Images via Unsplash
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        themeToggle.textContent = 'Light Mode';
+      } else {
+        themeToggle.textContent = 'Dark Mode';
+      }
+    });
+  </script>
+
+</body>
+</html>

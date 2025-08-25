@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Discover Earth</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2c7a7b, #38b2ac);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: slideIn 0.8s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .bot-avatar {
+      width: 90px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+    h2 {
+      margin: 10px 0;
+      color: #2c7a7b;
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    input:focus {
+      border-color: #38b2ac;
+      box-shadow: 0 0 6px rgba(56,178,172,0.4);
+    }
+    .btn {
+      padding: 14px;
+      background: #38b2ac;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #2c7a7b;
+      transform: translateY(-2px);
+    }
+    .links {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .links a {
+      text-decoration: none;
+      color: #2c7a7b;
+      font-weight: 600;
+      margin: 0 8px;
+    }
+    .chat-box {
+      margin: 15px auto;
+      background: #f0fdfd;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #2c7a7b;
+      display: inline-block;
+      max-width: 85%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Cartoon Bot Avatar -->
+    <img src="https://undraw.co/api/illustrations/ea4df995-5111-4c5f-9cc6-3cf94e56c61c" 
+         alt="Chatbot" class="bot-avatar">
+
+    <!-- Chat Bubble -->
+    <div class="chat-box">👋 Hi there! Welcome back, please login below.</div>
+
+    <h2>Login</h2>
+    <p>Access your Discover Earth Dashboard</p>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <div class="links">
+      <a href="forgotpassword.html">Forgot Password?</a> | 
+      <a href="Create.html">Create Account</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("✅ Login successful! Redirecting...");
+      window.location.href = "dashboard.html"; 
+    });
+  </script>
+</body>
+</html>
